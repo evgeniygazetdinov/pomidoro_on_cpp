@@ -13,7 +13,6 @@ uint64_t ant_recursive(int i, int j){
 }
 
 uint64_t ant_dynamic(int n){
-    
     uint64_t result;
     uint64_t *fib =  new uint64_t[n+1];
     fib[0] = 0;
