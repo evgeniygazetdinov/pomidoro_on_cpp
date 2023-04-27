@@ -2,10 +2,42 @@
 #include <iostream>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <string>
+#include <conio.h>
+#define KEY_UP    72
+#define KEY_LEFT  75
+#define KEY_RIGHT 77
+#define KEY_DOWN  80
+
 
 
 
 using namespace std;
+
+
+void input()
+{
+    int c = 0;
+    switch ((c = getch()))
+    {
+    case KEY_UP:
+        cout << endl<< "Up" << endl; //key up
+        break;
+    case KEY_DOWN:
+        cout << endl<< "Down" << endl; // key down
+        break;
+    case KEY_LEFT:
+        cout << endl<< "Left" << endl; // key left
+        break;
+    case KEY_RIGHT:
+        cout << endl<< "Right" << endl; // key right
+        break;
+    default:
+        break;
+    }
+}
+
 
 int hours = 0;
 int minutes = 0;
@@ -29,12 +61,12 @@ void timer() {
 
     while (true) {
         system("clear");
-
+        string pressed_key;
         displayClock();
         sleep(1);
         seconds++;
 
-
+        
         if (seconds == 60) {
 
             minutes++;
