@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/ev/cpp/alg_on_c",
+      "program": "/Users/ev/cpp/alg_on_c/build/Debug/outDebug"
+    }
+  ]
+}
