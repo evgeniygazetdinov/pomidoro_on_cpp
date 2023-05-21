@@ -14,46 +14,41 @@
 using namespace std;
 
 string pathname = "fonts/calibri.ttf";
-int hours = 0;
-int minutes = 0;
-int seconds = 0;
+int hour = 0;
+int minut = 0;
+int second = 0;
+sf::Text hours, minutes, seconds;
 
-void displayClock() {
-    cout <<setfill(' ') <<setw(55) <<"         TIMER         \n";
-    cout <<setfill(' ') <<setw(55) <<" --------------------------\n";
-    cout <<setfill(' ') <<setw(29);
 
-    cout <<"| " <<setfill('0') <<setw(2) <<hours <<" hrs | ";
-    cout <<setfill('0') <<setw(2) <<minutes <<" min | ";
-    cout <<setfill('0') <<setw(2) <<seconds <<" sec |" <<endl;
-    cout <<setfill(' ') <<setw(55) <<" --------------------------\n";
+void displayClock2() {
+	hours.setString(to_string(hour));
+	minutes.setString(to_string(minut));
+	seconds.setString(to_string(second));
 }
+
 
 void timer() {
 
     while (true) {
         system("clear");
-        displayClock();
+		displayClock2();
         sleep(1);
-        seconds++;
+        second++;
         
-        if (seconds == 60) {
+        if (second == 60) {
 
-            minutes++;
+            minut++;
 
-            if (minutes == 60) {
-                hours++;
-                minutes = 0;
+            if (minut == 60) {
+                hour++;
+                minut = 0;
             }
 
-            seconds = 0;
+            second = 0;
         }
         
     }
 }
-
-
-
 
 
 
@@ -67,6 +62,9 @@ int main() {
 	sf::Text text("F2 new game/ ESC exit /Arrow keys for moving", font, 20);
 	text.setFillColor(sf::Color::Cyan);
 	text.setPosition(5.f, 5.f);
+	hours.setPosition(6.f,6.f);
+	minutes.setPosition(7.f,7.f);
+	seconds.setPosition(8.f,8.f);
 
 	sf::Event event;
 
@@ -89,10 +87,10 @@ int main() {
 			// 		move_counter = 100;
 			// 	}
 
-
+				
 			}
 		}
-
+		timer();
 		window.clear();
 		window.draw(text);
 		window.display();
@@ -100,3 +98,7 @@ int main() {
 
 	return 0;
 }
+
+
+
+
