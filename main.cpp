@@ -8,6 +8,7 @@
 
 #include <sys/types.h>
 #include <sys/stat.h>
+#include "timer.h"
 
 
 
@@ -17,52 +18,26 @@ string pathname = "fonts/calibri.ttf";
 int hour = 0;
 int minut = 0;
 int second = 0;
-sf::Text hours, minutes, seconds;
 
-
-void displayClock2() {
-	hours.setString(to_string(hour));
-	minutes.setString(to_string(minut));
-	seconds.setString(to_string(second));
-}
-
-
-void timer() {
-
-    while (true) {
-        system("clear");
-		displayClock2();
-        sleep(1);
-        second++;
-        
-        if (second == 60) {
-
-            minut++;
-
-            if (minut == 60) {
-                hour++;
-                minut = 0;
-            }
-
-            second = 0;
-        }
-        
-    }
-}
 
 
 
 // add handle space for stop timer in thread!!!!
 
 int main() {
+	Timer myTimer;
+	myTimer.runTime();
     sf::RenderWindow window(sf::VideoMode(600, 600), "15");
 	window.setFramerateLimit(60);
 	sf::Font font;
-	font.loadFromFile(pathname);
 	sf::Text text("F2 new game/ ESC exit /Arrow keys for moving", font, 20);
+	font.loadFromFile(pathname);
+	sf::Text hours("00",font,20);
+	sf::Text minutes("00", font, 20);
+	sf::Text seconds("00", font, 20);
 	text.setFillColor(sf::Color::Cyan);
 	text.setPosition(5.f, 5.f);
-	hours.setPosition(6.f,6.f);
+	hours.setPosition(20,20);
 	minutes.setPosition(7.f,7.f);
 	seconds.setPosition(8.f,8.f);
 
@@ -86,19 +61,46 @@ int main() {
 			// 		game.Init();
 			// 		move_counter = 100;
 			// 	}
+					// timer();
 
 				
 			}
 		}
-		timer();
 		window.clear();
 		window.draw(text);
+		window.draw(hours);
+		window.draw(minutes);
+		window.draw(seconds);
 		window.display();
 	}
 
 	return 0;
 }
 
+// void displayClock() {
+// 	hours.setString(to_string(hour));
+// 	minutes.setString(to_string(minut));
+// 	seconds.setString(to_string(second));
+// }
 
 
+// void timer() {
+//         system("clear");
+// 		displayClock();
+//         sleep(1);
+//         second++;
+        
+//         if (second == 60) {
+
+//             minut++;
+
+//             if (minut == 60) {
+//                 hour++;
+//                 minut = 0;
+//             }
+
+//             second = 0;
+//         }
+        
+// }
 
