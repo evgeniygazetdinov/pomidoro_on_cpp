@@ -1,27 +1,31 @@
 #include "timer.h"
 #include <iostream>
+#include <unistd.h>
+#include <array>
 
-void Timer::updateTimeVariables(){
+using namespace std;
 
+
+array<int,3> Timer::getUpdatedTimeVariables(){
+    array<int,3> timeVariables;
+    timeVariables[0], timeVariables[1], timeVariables[2] = hour, minute, second;
+    return timeVariables;
 }
 
 void Timer::runTime(){
-		updateTimeVariables();
         sleep(1);
         second++;
         
         if (second == 60) {
 
-            minut++;
+            minute++;
 
-            if (minut == 60) {
+            if (minute == 60) {
                 hour++;
-                minut = 0;
+                minute = 0;
             }
 
             second = 0;
         }
         
-}
-
 }
