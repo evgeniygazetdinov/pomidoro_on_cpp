@@ -28,9 +28,11 @@ int main() {
 	myTimer.runTime();
     sf::RenderWindow window(sf::VideoMode(600, 600), "15");
 	window.setFramerateLimit(60);
+		
 	sf::Font font;
-	sf::Text text("F2 new game/ ESC exit /Arrow keys for moving", font, 20);
 	font.loadFromFile(pathname);
+	sf::Text text("F2 new game/ ESC exit /Arrow keys for moving", font, 20);
+
 	sf::Text TextHour("00",font,20);
 	sf::Text TextMinute("00", font, 20);
 	sf::Text TextSecond("00", font, 20);
