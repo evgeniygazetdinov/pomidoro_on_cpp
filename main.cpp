@@ -56,11 +56,7 @@ int main() {
 			if(event.type == sf::Event::KeyPressed)
 			{
 				if (event.key.code == sf::Keyboard::Escape) window.close();
-			// 	if (event.key.code == sf::Keyboard::Left) game.Move(Direction::Left);
-			// 	if (event.key.code == sf::Keyboard::Right) game.Move(Direction::Right);
-			// 	if (event.key.code == sf::Keyboard::Up) game.Move(Direction::Up);
-			// 	if (event.key.code == sf::Keyboard::Down) game.Move(Direction::Down);
-
+	
 			// 	if(event.key.code == sf::Keyboard::F2)
 			// 	{
 			// 		game.Init();

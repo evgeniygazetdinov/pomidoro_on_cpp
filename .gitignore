@@ -1,3 +1,4 @@
 *.out
 pomidoro
 .DS_Store
+.vscode
