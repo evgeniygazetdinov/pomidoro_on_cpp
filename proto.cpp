@@ -4,6 +4,23 @@
 
 using namespace std;
 
+int hours, seconds,minutes;
+
+void timer() {
+        if (seconds == 60) {
+
+            minutes++;
+
+            if (minutes == 60) {
+                hours++;
+                minutes = 0;
+            }
+
+            seconds = 0;
+        }
+    }
+
+
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
