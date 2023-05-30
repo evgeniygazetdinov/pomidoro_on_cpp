@@ -21,7 +21,6 @@ array<int,3> timeArray;
 
 
 
-// add handle space for stop timer in thread!!!!
 
 int main() {
 	Timer myTimer;
@@ -83,11 +82,3 @@ int main() {
 
 	return 0;
 }
-
-void parseTimeAndDisplay(Timer myTimer, sf::RenderWindow window) {
-
-
-}
-
-
-
