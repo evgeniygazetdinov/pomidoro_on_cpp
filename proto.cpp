@@ -6,9 +6,9 @@ using namespace std;
 
 int hours, seconds,minutes;
 
-void timer() {
-        if (seconds == 60) {
-
+void timer(int secondsForCount) {
+        if (secondsForCount == 10) {
+            
             minutes++;
 
             if (minutes == 60) {
@@ -16,7 +16,6 @@ void timer() {
                 minutes = 0;
             }
 
-            seconds = 0;
         }
     }
 
@@ -32,8 +31,12 @@ int main()
 
     sf::Font font;
 	font.loadFromFile(pathname);
-    sf::Text TextSecond("00", font, 20);
-
+    sf::Text TextSecond("00", font, 100);
+    sf::Text TextMinutes("00", font, 100);
+    sf::Text TextHours("00", font, 100);
+    TextSecond.setPosition(400,200);
+    TextHours.setPosition(200,250);
+    TextMinutes.setPosition(300,300);
     while (window.isOpen())
     {
         dt = clock.getElapsedTime().asSeconds();
@@ -46,15 +49,21 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
+        
         TextSecond.setString(to_string(lastTime));
+        TextMinutes.setString(to_string(minutes));
+        TextHours.setString(to_string(hours));
         
         window.clear();
+        timer(lastTime);
         window.draw(TextSecond);
+        window.draw(TextMinutes);
+        window.draw(TextHours);
         window.display();
 
         
-        if(currentTime!=lastTime)
-            cout << (int)dt << std::endl;
+        // if(currentTime!=lastTime)
+        //     e
     }
 
     return 0;
