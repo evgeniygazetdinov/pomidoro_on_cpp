@@ -2,21 +2,18 @@
 #include <iostream>
 #include <iomanip>
 
+#include <ctime>
 using namespace std;
 
 int hours, seconds,minutes;
 
-void timer(int secondsForCount) {
-        if (secondsForCount == 10) {
-            
-            minutes++;
-
-            if (minutes == 60) {
-                hours++;
-                minutes = 0;
-            }
-
-        }
+string timer(int secondsForCount) {
+    
+        //TODO ADD FUNC for add or not add additional zero to each number
+        minutes = secondsForCount / 60;
+        hours = minutes / 60;
+        string myCurentTime = std::to_string(hours) + ":" + std::to_string(minutes%60) + ":" + std::to_string(secondsForCount%60);
+        return myCurentTime;
     }
 
 
@@ -31,12 +28,8 @@ int main()
 
     sf::Font font;
 	font.loadFromFile(pathname);
-    sf::Text TextSecond("00", font, 100);
-    sf::Text TextMinutes("00", font, 100);
-    sf::Text TextHours("00", font, 100);
-    TextSecond.setPosition(400,200);
-    TextHours.setPosition(200,250);
-    TextMinutes.setPosition(300,300);
+    sf::Text timeWidget("00", font, 100);
+    timeWidget.setPosition(400,200);
     while (window.isOpen())
     {
         dt = clock.getElapsedTime().asSeconds();
@@ -49,21 +42,13 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        
-        TextSecond.setString(to_string(lastTime));
-        TextMinutes.setString(to_string(minutes));
-        TextHours.setString(to_string(hours));
-        
+        timeWidget.setString(timer(lastTime));
         window.clear();
-        timer(lastTime);
-        window.draw(TextSecond);
-        window.draw(TextMinutes);
-        window.draw(TextHours);
+        window.draw(timeWidget);
         window.display();
 
         
         // if(currentTime!=lastTime)
-        //     e
     }
 
     return 0;
