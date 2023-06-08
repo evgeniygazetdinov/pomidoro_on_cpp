@@ -7,15 +7,24 @@ using namespace std;
 
 int hours, seconds,minutes;
 
-string timer(int secondsForCount) {
-    
-        //TODO ADD FUNC for add or not add additional zero to each number
+string isNeedAddZero(string timeElement){
+
+    if (timeElement.length() == 1) {
+        cout<<"string < 1"<<endl;
+        return "0" + timeElement;
+    }
+    else{
+        return timeElement;
+    }
+}
+
+string timer(int secondsForCount) {    
         minutes = secondsForCount / 60;
         hours = minutes / 60;
-        string myCurentTime = std::to_string(hours) + ":" + std::to_string(minutes%60) + ":" + std::to_string(secondsForCount%60);
+        string myCurentTime = isNeedAddZero(std::to_string(hours)) + ":" + isNeedAddZero(std::to_string(minutes%60)) + ":" + isNeedAddZero(std::to_string(secondsForCount%60));
         return myCurentTime;
-    }
-
+}
+// TODO Implement button for stop and start time
 
 int main()
 {
