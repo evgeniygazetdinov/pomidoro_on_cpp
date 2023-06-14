@@ -3,28 +3,12 @@
 #include <iomanip>
 
 #include <ctime>
+#include "libs/timer.h"
+
 using namespace std;
 
 int hours, seconds,minutes;
 
-string isNeedAddZero(string timeElement){
-
-    if (timeElement.length() == 1) {
-        cout<<"string < 1"<<endl;
-        return "0" + timeElement;
-    }
-    else{
-        return timeElement;
-    }
-}
-
-string timer(int secondsForCount) {    
-        minutes = secondsForCount / 60;
-        hours = minutes / 60;
-        string myCurentTime = isNeedAddZero(std::to_string(hours)) + ":" + isNeedAddZero(std::to_string(minutes%60)) + ":" + isNeedAddZero(std::to_string(secondsForCount%60));
-        return myCurentTime;
-}
-// TODO Implement button for stop and start time
 
 int main()
 {
@@ -39,6 +23,7 @@ int main()
 	font.loadFromFile(pathname);
     sf::Text timeWidget("00", font, 100);
     timeWidget.setPosition(400,200);
+    TextTimer timer;
     while (window.isOpen())
     {
         dt = clock.getElapsedTime().asSeconds();
@@ -51,7 +36,7 @@ int main()
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        timeWidget.setString(timer(lastTime));
+        timeWidget.setString(timer.prepareTimeString(lastTime));
         window.clear();
         window.draw(timeWidget);
         window.display();
