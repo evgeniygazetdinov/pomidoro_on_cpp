@@ -3,12 +3,32 @@
 #include <iomanip>
 
 #include <ctime>
-#include "libs/timer.h"
+// #include "libs/timer.h"
 
 using namespace std;
 
-int hours, seconds,minutes;
+//TODO move separated file
+class TextTimer{
+    public:
+        string isNeedAddZero(string timeElement){
 
+            if (timeElement.length() == 1) {
+                timeElement = "0" + timeElement;
+            }
+            return timeElement;
+        }
+
+        string prepareTimeString(int secondsForCount) {    
+                int minutes = secondsForCount / 60;
+                int hours = minutes / 60;
+                string myCurentTime = isNeedAddZero(std::to_string(hours)) + ":"
+                + isNeedAddZero(std::to_string(minutes%60)) + ":"
+                + isNeedAddZero(std::to_string(secondsForCount%60));
+                return myCurentTime;
+        }
+};
+
+int hours, seconds, minutes;
 
 int main()
 {
@@ -41,8 +61,6 @@ int main()
         window.draw(timeWidget);
         window.display();
 
-        
-        // if(currentTime!=lastTime)
     }
 
     return 0;
