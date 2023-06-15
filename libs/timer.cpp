@@ -3,15 +3,12 @@
 
 using namespace std;
 
-
 string TextTimer::isNeedAddZero(string timeElement){
 
     if (timeElement.length() == 1) {
-        return "0" + timeElement;
+        textElement = "0" + timeElement;
     }
-    else{
-        return timeElement;
-    }
+    return timeElement;
 }
 
 string TextTimer::prepareTimeString(int secondsForCount) {    
