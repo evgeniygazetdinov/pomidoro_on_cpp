@@ -3,30 +3,13 @@
 #include <iomanip>
 
 #include <ctime>
-// #include "libs/timer.h"
+#include "libs/timer.h"
+#include "libs/button.h"
 
 using namespace std;
 
 //TODO move separated file
-class TextTimer{
-    public:
-        string isNeedAddZero(string timeElement){
 
-            if (timeElement.length() == 1) {
-                timeElement = "0" + timeElement;
-            }
-            return timeElement;
-        }
-
-        string prepareTimeString(int secondsForCount) {    
-                int minutes = secondsForCount / 60;
-                int hours = minutes / 60;
-                string myCurentTime = isNeedAddZero(std::to_string(hours)) + ":"
-                + isNeedAddZero(std::to_string(minutes%60)) + ":"
-                + isNeedAddZero(std::to_string(secondsForCount%60));
-                return myCurentTime;
-        }
-};
 
 int hours, seconds, minutes;
 
@@ -44,6 +27,7 @@ int main()
     sf::Text timeWidget("00", font, 100);
     timeWidget.setPosition(400,200);
     TextTimer timer;
+
     while (window.isOpen())
     {
         dt = clock.getElapsedTime().asSeconds();
