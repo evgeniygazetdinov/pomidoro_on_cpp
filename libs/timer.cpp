@@ -1,12 +1,12 @@
 #include <iostream>
-#include <time.h>
+#include "timer.h"
 
 using namespace std;
 
 string TextTimer::isNeedAddZero(string timeElement){
 
     if (timeElement.length() == 1) {
-        textElement = "0" + timeElement;
+        timeElement = "0" + timeElement;
     }
     return timeElement;
 }

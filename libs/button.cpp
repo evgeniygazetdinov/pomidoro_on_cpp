@@ -1,59 +1,44 @@
 #include <SFML/Graphics.hpp>
+#include "button.h"
 
+using namespace sf;
 
-class Button {
-public:
-    Button (sf::Image* normal,sf::Image* clicked,std::string,sf::Vector2f location);
-    void checkClick (sf::Vector2f);
-    void setState(bool);
-    void setText(std::string);
-    bool getVar();
-    sf::Sprite* getSprite();
-    sf::String * getText();
-private:
-    sf::Sprite normal;
-    sf::Sprite clicked;
-    sf::Sprite* currentSpr;
-    sf::String String;
-    bool current;
-};
+// StartStopButton StartStopButton::Button(sf::Image* normal,sf::Image* clicked,std::string words,sf::Vector2f location) {
+    // this->normal.SetImage(*normal);
+    // this->clicked.SetImage(*clicked);
+    // this->currentSpr=&this->normal;
+    // bool current =false;
+    // this->normal.SetPosition(location);
+    // this->clicked.SetPosition(location);
+    // String.SetText(words);
+    // String.SetPosition(location.x+3,location.y+3);
+    // String.SetSize(14);
+// }
+// void StartStopButton::checkClick (sf::Vector2f mousePos) {
+//     if (mousePos.x>currentSpr->sf::getPosition().x && mousePos.x<(currentSpr->getPosition().x + currentSpr->GetSize().x)) {
+//         if(mousePos.y>currentSpr->getPosition().y && mousePos.y<(currentSpr->getPosition().y + currentSpr->GetSize().y)) {
+//             // setState(!current);
+//         }
+//     }
+// }
+// void StartStopButton::setState(bool which) {
+//     current = which;
+//     if (current) {
+//         currentSpr=&clicked;
+//         return;
+//     }
+//     currentSpr=&normal;
+// }
+// void StartStopButton::setText(std::string words) {
+//     String.SetText(words);
+// }
+// bool StartStopButton::getVar() {
+//     return current;
+// }
+// sf::Sprite* StartStopButton::getSprite() {
+//     return currentSpr;
+// }
 
-Button::Button(sf::Image* normal,sf::Image* clicked,std::string words,sf::Vector2f location) {
-    this->normal.SetImage(*normal);
-    this->clicked.SetImage(*clicked);
-    this->currentSpr=&this->normal;
-    current =false;
-    this->normal.SetPosition(location);
-    this->clicked.SetPosition(location);
-    String.SetText(words);
-    String.SetPosition(location.x+3,location.y+3);
-    String.SetSize(14);
-}
-void Button::checkClick (sf::Vector2f mousePos) {
-    if (mousePos.x>currentSpr->GetPosition().x && mousePos.x<(currentSpr->GetPosition().x + currentSpr->GetSize().x)) {
-        if(mousePos.y>currentSpr->GetPosition().y && mousePos.y<(currentSpr->GetPosition().y + currentSpr->GetSize().y)) {
-            setState(!current);
-        }
-    }
-}
-void Button::setState(bool which) {
-    current = which;
-    if (current) {
-        currentSpr=&clicked;
-        return;
-    }
-    currentSpr=&normal;
-}
-void Button::setText(std::string words) {
-    String.SetText(words);
-}
-bool Button::getVar() {
-    return current;
-}
-sf::Sprite* Button::getSprite() {
-    return currentSpr;
-}
-
-sf::String * Button::getText() {
-    return &String;
-}
+// sf::String* StartStopButton::getText() {
+//     return &String;
+// }
