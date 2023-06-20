@@ -59,8 +59,9 @@ int main()
                     std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                     std::cout << "mouse y: " << event.mouseButton.y << std::endl;
                     if(event.mouseButton.x > 600 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
-                                         std::cout << "button presed" std::endl;
-   
+                                         
+                    clock.restart();
+                    //handle condition on start and restart
                     // TODO HANDLE push without handcode 
                     }
                 }
