@@ -34,17 +34,19 @@ int main()
     sf::Sprite backgroundImage;
 
     if (!background.loadFromFile("sprites/startButton.png"))
-        std::cout << "Error: Could not display Alaskan Wilderness image" << std::endl;
+        std::cout << "cant find image" << std::endl;
 
     backgroundImage.setTexture(background);
     backgroundImage.setPosition(sf::Vector2f(SCRWIDTH/2.0f,SCRHEIGHT/2.0f));
-
+    int canStart = 0;
 
     while (window.isOpen())
     {
+        //maybe coudt possible inherit from main class and override time variable for begin to count
         dt = clock.getElapsedTime().asSeconds();
         lastTime = (int)dt;
         currentTime = lastTime;
+        
 
         sf::Event event;
         while (window.pollEvent(event))
@@ -59,10 +61,22 @@ int main()
                     std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                     std::cout << "mouse y: " << event.mouseButton.y << std::endl;
                     if(event.mouseButton.x > 600 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
-                                         
-                    clock.restart();
-                    //handle condition on start and restart
-                    // TODO HANDLE push without handcode 
+                    if(!canStart){
+                        
+
+                        std::cout << canStart<< std::endl;
+                        canStart = 1; 
+                        // timer.needToStopCount=1;
+                    }
+                    else if(canStart == 1){
+                        // clock.restart();
+                        std::cout << "stop" << std::endl;
+                        canStart = 0; 
+                        clock.restart();
+                        // TODO think how i can begin from specific time value
+                                           }                     
+                    
+
                     }
                 }
         }
