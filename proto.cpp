@@ -26,7 +26,7 @@ int main()
 
     sf::Font font;
 	font.loadFromFile(pathname);
-    sf::Text timeWidget("00", font, 100);
+    sf::Text timeWidget("00:00:00", font, 100);
     timeWidget.setPosition(400,200);
     TextTimer timer;
 
@@ -62,26 +62,26 @@ int main()
                     std::cout << "mouse y: " << event.mouseButton.y << std::endl;
                     if(event.mouseButton.x > 600 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
                     if(!canStart){
-                        
-
-                        std::cout << canStart<< std::endl;
                         canStart = 1; 
-                        // timer.needToStopCount=1;
                     }
-                    else if(canStart == 1){
-                        // clock.restart();
-                        std::cout << "stop" << std::endl;
-                        canStart = 0; 
-                        clock.restart();
-                        // TODO think how i can begin from specific time value
-                                           }                     
+                    else{
+                        canStart = 0;
+                        // clock.restart()
+                    }
+                    //                        }                     
                     
 
                     }
                 }
         }
         }
-        timeWidget.setString(timer.prepareTimeString(lastTime));
+        //TODO MOVE THIS INTO SOME METHOD FOR BEATIFY SITUATUION
+        auto stringTime = timer.prepareTimeString(lastTime);
+        if(canStart){
+            timeWidget.setString(stringTime);
+        }
+
+        
         window.clear();
                 
 
