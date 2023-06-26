@@ -3,19 +3,19 @@
 
 using namespace std;
 
-class StartStopButton {
+class ActonButton {
 public:
-    StartStopButton (sf::Image* normal,sf::Image* clicked,std::string,sf::Vector2f location);
-    // void checkClick (sf::Vector2f);
-    // void setState(bool);
-    // void setText(std::string);
-    // bool getVar();
-    // sf::Sprite* getSprite();
-    // sf::String * getText();
+    void myMethod();
+    ActonButton (string imageLocation,sf::Vector2f location);
+    sf::Sprite sprite;
+    int canStart = 0;
+
 private:
     sf::Sprite normal;
     sf::Sprite clicked;
     sf::Sprite* currentSpr;
     sf::String String;
     bool current;
+    sf::Texture texture;
+    
 };
