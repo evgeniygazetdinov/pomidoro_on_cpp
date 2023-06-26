@@ -2,12 +2,17 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "C/C++ Runner: Debug Session",
-      "type": "lldb",
+      "name": "(lldb) Launch",
+      "type": "cppdbg",
       "request": "launch",
+      "program": "enter program name, for example ${workspaceFolder}/pomidoro.out",
       "args": [],
-      "cwd": "/Users/ev/cpp/alg_on_c",
-      "program": "/Users/ev/cpp/alg_on_c/build/Debug/outDebug"
-    }
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": false,
+      "MIMode": "lldb"
+    },
+
   ]
 }

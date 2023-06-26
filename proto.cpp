@@ -30,19 +30,9 @@ int main()
     timeWidget.setPosition(400,200);
     TextTimer timer;
 
-    sf::Texture background;
-    sf::Sprite backgroundImage;
-
-    if (!background.loadFromFile("sprites/startButton.png"))
-        std::cout << "cant find image" << std::endl;
-
-    backgroundImage.setTexture(background);
-    backgroundImage.setPosition(sf::Vector2f(SCRWIDTH/2.0f,SCRHEIGHT/2.0f));
-    int canStart = 0;
-
+    ActonButton sampleBut("sprites/startButton.png", sf::Vector2f(SCRWIDTH/2.0f,SCRHEIGHT/2.0f));
     while (window.isOpen())
     {
-        //maybe coudt possible inherit from main class and override time variable for begin to count
         dt = clock.getElapsedTime().asSeconds();
         lastTime = (int)dt;
         currentTime = lastTime;
@@ -61,23 +51,19 @@ int main()
                     std::cout << "mouse x: " << event.mouseButton.x << std::endl;
                     std::cout << "mouse y: " << event.mouseButton.y << std::endl;
                     if(event.mouseButton.x > 600 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
-                    if(!canStart){
-                        canStart = 1; 
+                    if(!sampleBut.canStart){
+                        sampleBut.canStart = 1; 
                     }
                     else{
-                        canStart = 0;
-                        // clock.restart()
+                        sampleBut.canStart = 0;
                     }
-                    //                        }                     
-                    
 
                     }
                 }
         }
         }
-        //TODO MOVE THIS INTO SOME METHOD FOR BEATIFY SITUATUION
         auto stringTime = timer.prepareTimeString(lastTime);
-        if(canStart){
+        if(sampleBut.canStart){
             timeWidget.setString(stringTime);
         }
 
@@ -86,7 +72,7 @@ int main()
                 
 
         window.draw(timeWidget);
-        window.draw(backgroundImage);
+        window.draw(sampleBut.sprite);
         window.display();
 
     }
