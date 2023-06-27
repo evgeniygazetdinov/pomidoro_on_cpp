@@ -47,17 +47,10 @@ int main()
 {
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
-                    std::cout << "the right button was pressed" << std::endl;
-                    std::cout << "mouse x: " << event.mouseButton.x << std::endl;
-                    std::cout << "mouse y: " << event.mouseButton.y << std::endl;
                     if(event.mouseButton.x > 600 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
-                    if(!sampleBut.canStart){
-                        sampleBut.canStart = 1; 
-                    }
-                    else{
-                        sampleBut.canStart = 0;
-                    }
+                        std::cout<<sampleBut.canStart<<std::endl;
 
+                        sampleBut.conditionHandler();
                     }
                 }
         }
