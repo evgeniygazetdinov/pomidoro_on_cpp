@@ -5,10 +5,11 @@ using namespace std;
 
 class ActonButton {
 public:
-    void myMethod();
+    void conditionHandler();
     ActonButton (string imageLocation,sf::Vector2f location);
     sf::Sprite sprite;
     int canStart = 0;
+    
 
 private:
     sf::Sprite normal;

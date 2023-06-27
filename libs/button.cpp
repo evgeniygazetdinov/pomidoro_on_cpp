@@ -6,11 +6,6 @@
 using namespace std;
 
 
-void ActonButton::myMethod(){
-    std::cout<<"here"<<std::endl;
-}
-
-
 ActonButton::ActonButton(string pathToImage,sf::Vector2f location){
     if (!texture.loadFromFile(pathToImage))
         std::cout << "cant find image" << std::endl;
@@ -18,3 +13,12 @@ ActonButton::ActonButton(string pathToImage,sf::Vector2f location){
     sprite.setTexture(texture);
     sprite.setPosition(location);
 };
+
+void ActonButton::conditionHandler(){
+        if(canStart == 2){
+            canStart = 0;
+        }
+        else{
+            canStart+=1;
+        }
+}
