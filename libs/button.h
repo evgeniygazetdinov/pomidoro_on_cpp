@@ -1,11 +1,12 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+
 using namespace std;
 
 class ActonButton {
 public:
-    void conditionHandler();
+    void conditionTimeHandler();
     ActonButton (string imageLocation,sf::Vector2f location);
     sf::Sprite sprite;
     int canStart = 0;

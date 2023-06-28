@@ -14,8 +14,8 @@ ActonButton::ActonButton(string pathToImage,sf::Vector2f location){
     sprite.setPosition(location);
 };
 
-void ActonButton::conditionHandler(){
-        if(canStart == 2){
+void ActonButton::conditionTimeHandler(){
+        if(canStart == 3){
             canStart = 0;
         }
         else{
