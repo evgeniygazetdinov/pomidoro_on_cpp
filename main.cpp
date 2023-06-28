@@ -49,15 +49,18 @@ int main()
                 {
                     if(event.mouseButton.x > 600 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
                         std::cout<<sampleBut.canStart<<std::endl;
-
-                        sampleBut.conditionHandler();
+                        sampleBut.conditionTimeHandler();
                     }
                 }
         }
         }
         auto stringTime = timer.prepareTimeString(lastTime);
-        if(sampleBut.canStart){
+        if(sampleBut.canStart == 1){
             timeWidget.setString(stringTime);
+        }
+        else if(sampleBut.canStart > 1){
+            std::cout<<sampleBut.canStart<<std::endl;
+            
         }
 
         
