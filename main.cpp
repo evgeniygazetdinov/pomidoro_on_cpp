@@ -58,8 +58,9 @@ int main()
         if(sampleBut.canStart == 1){
             timeWidget.setString(stringTime);
         }
-        else if(sampleBut.canStart > 1){
-            std::cout<<sampleBut.canStart<<std::endl;
+        else if(sampleBut.canStart == 2){
+            clock.restart();
+            sampleBut.canStart = 0;
             
         }
 
