@@ -4,7 +4,11 @@
 
 using namespace std;
 
-class ActonButton {
+class BaseButton {
+    
+};
+
+class ActonButton: private BaseButton {
 public:
     void conditionTimeHandler();
     ActonButton (string imageLocation,sf::Vector2f location);
