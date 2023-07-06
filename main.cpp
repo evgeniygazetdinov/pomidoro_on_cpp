@@ -31,6 +31,7 @@ int main()
     TextTimer timer;
 
     ActonButton sampleBut("sprites/startButton.png", sf::Vector2f(SCRWIDTH/2.0f,SCRHEIGHT/2.0f));
+
     while (window.isOpen())
     {
         dt = clock.getElapsedTime().asSeconds();

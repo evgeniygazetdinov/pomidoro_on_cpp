@@ -25,3 +25,7 @@ private:
     sf::Texture texture;
     
 };
+
+class FifthenMinutes: private ActonButton{
+
+};
