@@ -1,5 +1,7 @@
 #include <iostream>
 #include "timer.h"
+#include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -25,4 +27,17 @@ string TextTimer::prepareTimeString(int secondsForCount) {
             return lastEqulizedTime;
         }    
         
+}
+
+
+int TextTimer::countBySpecificPeriod(int periodForCount)
+{
+    int periodForLoop = 900;
+    for(int i=periodForLoop-1; i>=0; i--)
+    {
+        lastTimerValue=i;
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        return lastTimerValue;
+
+    }
 }
