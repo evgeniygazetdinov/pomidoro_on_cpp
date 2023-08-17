@@ -54,14 +54,14 @@ int main()
                 }
         }
         }
+        // move that into timer implement TDO make one more class with timer button with 2 logic inside
         if(sampleBut.canStart == 1){
             std::cout<< "button pushed"<<std::endl;
             lastTime = timer.countBySpecificPeriod(15);
             auto stringTime = timer.prepareTimeString(lastTime);
             if(timer.needToStopCount){
                 stringTime = "00:00:00";
-            }
-            
+            } 
             timeWidget.setString(stringTime);
         }
         else if(sampleBut.canStart == 2){
