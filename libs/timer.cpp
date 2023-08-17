@@ -41,7 +41,11 @@ int TextTimer::countBySpecificPeriod(int periodForCount)
     {
         lastTimerValue=i;
         std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+        if(lastTimerValue == 0){
+            needToStopCount = 1;
+        } 
         return lastTimerValue;
 
     }
+
 }
