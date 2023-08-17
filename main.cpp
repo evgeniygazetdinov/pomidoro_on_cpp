@@ -56,15 +56,19 @@ int main()
         }
         if(sampleBut.canStart == 1){
             std::cout<< "button pushed"<<std::endl;
-
             lastTime = timer.countBySpecificPeriod(15);
             auto stringTime = timer.prepareTimeString(lastTime);
-
+            if(timer.needToStopCount){
+                stringTime = "00:00:00";
+            }
+            
             timeWidget.setString(stringTime);
         }
         else if(sampleBut.canStart == 2){
             // clock.restart();
-            sampleBut.canStart = 0;
+            sampleBut.canStart = 1;
+            timer.needToStopCount=0;
+            timer.lastTimerValue=0;
             
         }
 
