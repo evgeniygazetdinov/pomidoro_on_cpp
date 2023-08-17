@@ -11,6 +11,6 @@ class TextTimer{
         int countBySpecificPeriod(int periodForCount);
         int needToStopCount = 0;
         string lastEqulizedTime = "00:00:00";
-        int getSpecificSecondByPeriod(int minutes);
-        int lastTimerValue;
+        int lastTimerValue = 0;
+
 };
