@@ -32,6 +32,7 @@ int main()
     timeWidget.setPosition(400,200);
     TextTimer timer;
     ActonButton sampleBut("sprites/startButton.png", sf::Vector2f(SCRWIDTH/2.0f,SCRHEIGHT/2.0f));
+    ActonButton sampleBut2("sprites/startButton.png", sf::Vector2f(SCRWIDTH/10.0f,SCRHEIGHT/2.0f));
 
     while (window.isOpen())
     {
@@ -73,6 +74,7 @@ int main()
 
         window.draw(timeWidget);
         window.draw(sampleBut.sprite);
+        window.draw(sampleBut2.sprite);
         window.display();
 
     }

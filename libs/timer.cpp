@@ -33,6 +33,10 @@ string TextTimer::prepareTimeString(int secondsForCount) {
 int TextTimer::countBySpecificPeriod(int periodForCount)
 {
     int periodForLoop = 900;
+    if(lastTimerValue > 0){
+        cout<<lastTimerValue<<endl;
+        periodForLoop = lastTimerValue;
+    }
     for(int i=periodForLoop-1; i>=0; i--)
     {
         lastTimerValue=i;
