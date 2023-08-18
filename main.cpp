@@ -31,8 +31,8 @@ int main()
     sf::Text timeWidget("00:00:00", font, 100);
     timeWidget.setPosition(400,200);
     TextTimer timer;
-    ActonButton sampleBut("sprites/startButton.png", sf::Vector2f(SCRWIDTH/2.0f,SCRHEIGHT/2.0f));
-    ActonButton sampleBut2("sprites/startButton.png", sf::Vector2f(SCRWIDTH/10.0f,SCRHEIGHT/2.0f));
+    ActonButton fiveMinutes("sprites/15.png", sf::Vector2f(SCRWIDTH/2.0f,SCRHEIGHT/2.0f));
+    ActonButton fifteenMintes("sprites/5.png", sf::Vector2f(SCRWIDTH/10.0f,SCRHEIGHT/2.0f));
 
     while (window.isOpen())
     {
@@ -48,15 +48,15 @@ int main()
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
                     if(event.mouseButton.x > 600 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
-                        std::cout<<sampleBut.canStart<<std::endl;
-                        sampleBut.conditionTimeHandler();
+                        std::cout<<fiveMinutes.canStart<<std::endl;
+                        fiveMinutes.conditionTimeHandler();
                     }
                 }
         }
         }
         // move that into timer implement TDO make one more class with timer button with 2 logic inside
-        if(sampleBut.canStart == 1){
-            std::cout<< "button pushed"<<std::endl;
+        if(fiveMinutes.canStart == 1){
+            std::cout<<"button pushed"<<std::endl;
             lastTime = timer.countBySpecificPeriod(15);
             auto stringTime = timer.prepareTimeString(lastTime);
             if(timer.needToStopCount){
@@ -64,9 +64,8 @@ int main()
             } 
             timeWidget.setString(stringTime);
         }
-        else if(sampleBut.canStart == 2){
-            // clock.restart();
-            sampleBut.canStart = 1;
+        else if(fiveMinutes.canStart == 2){
+            fiveMinutes.canStart = 1;
             timer.needToStopCount=0;
             timer.lastTimerValue=0;
             
@@ -77,8 +76,8 @@ int main()
                 
 
         window.draw(timeWidget);
-        window.draw(sampleBut.sprite);
-        window.draw(sampleBut2.sprite);
+        window.draw(fiveMinutes.sprite);
+        window.draw(fifteenMintes.sprite);
         window.display();
 
     }
