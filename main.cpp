@@ -32,27 +32,29 @@ int main()
     timeWidget.setPosition(400,200);
     TextTimer timer;
     ActonButton fiveMinutes("sprites/15.png", sf::Vector2f(SCRWIDTH/2.0f,SCRHEIGHT/2.0f));
-    ActonButton fifteenMintes("sprites/5.png", sf::Vector2f(SCRWIDTH/10.0f,SCRHEIGHT/2.0f));
+    ActonButton fifteenMintes("sprites/15.png", sf::Vector2f(SCRWIDTH/10.0f,SCRHEIGHT/2.0f));
 
     while (window.isOpen())
     {
-        
-
         sf::Event event;
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed)
-{
+            {
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
                     if(event.mouseButton.x > 600 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
                         std::cout<<fiveMinutes.canStart<<std::endl;
                         fiveMinutes.conditionTimeHandler();
                     }
+                     if(event.mouseButton.x > 300 && event.mouseButton.x < 884 || event.mouseButton.y >482 && event.mouseButton.y <510 ){
+                        std::cout<<fiveMinutes.canStart<<std::endl;
+                        fiveMinutes.conditionTimeHandler();
+                    }
                 }
-        }
+            }
         }
         // move that into timer implement TDO make one more class with timer button with 2 logic inside
         if(fiveMinutes.canStart == 1){
